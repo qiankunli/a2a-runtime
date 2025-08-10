@@ -13,6 +13,8 @@ http://a2a-runtime:port/default/agent2
 
 <img src="assets/overview.png" alt="overview"/>
 
+建议与[chat-a2a](https://github.com/qiankunli/chat-a2a) 配合使用
+
 # 改动
 
 对a2a 一些现有实现的改动放在server.a2a2 包下
@@ -24,4 +26,4 @@ http://a2a-runtime:port/default/agent2
 
 项目仍不完善，欢迎共创
 
-<img src="assets/wechat-qrcode.jpg" alt="WeChat QR Code"/>
+<img src="assets/wechat-qrcode.jpg" alt="WeChat QR Code" width="350" height="350"/>
