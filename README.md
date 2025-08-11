@@ -17,7 +17,7 @@ http://a2a-runtime:port/default/agent2
 
 # 改动
 
-对a2a 一些现有实现的改动放在server.a2a2 包下
+对a2a-python 一些现有实现的改动放在server.a2a2 包下
 1. 提供一个入口RuntimeAgentExecutor，将收到的请求转发给具体的a2a AgentExecutor
 2. 提供一个新的RuntimeA2AFastAPIApplication（仿自eA2AFastAPIApplication）将不同agent 挂在到同一个endpoint（不同path）下
 3. 提供一个RuntimeRequestHandler（仿自DefaultRequestHandler），使得新message/send 也可以指定task_id
@@ -26,4 +26,4 @@ http://a2a-runtime:port/default/agent2
 
 项目仍不完善，欢迎共创
 
-<img src="assets/wechat-qrcode.jpg" alt="WeChat QR Code" width="350" height="350"/>
+<img src="assets/wechat-qrcode.jpg" alt="WeChat QR Code" width="350" height="450"/>
