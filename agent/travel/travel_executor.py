@@ -22,8 +22,12 @@ class TravelExecutor(AgentExecutor):
             event_queue: EventQueue,
     ):
         updater = TaskUpdater(event_queue, context.task_id, context.context_id)
+        await updater.update_status(TaskState.working,
+                                    message=new_agent_text_message("先去故宫"))
+        await updater.update_status(TaskState.working,
+                                    message=new_agent_text_message("再去长城"))
         await updater.update_status(TaskState.completed,
-                                    message=new_agent_text_message("先去故宫，再去长城，再去颐和园"))
+                                    message=new_agent_text_message("再去颐和园"))
 
     async def cancel(self, context: RequestContext, event_queue: EventQueue):
         pass

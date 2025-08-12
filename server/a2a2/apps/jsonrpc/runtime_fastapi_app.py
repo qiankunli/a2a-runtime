@@ -18,7 +18,7 @@ from a2a.utils.constants import (
     EXTENDED_AGENT_CARD_PATH,
     PREV_AGENT_CARD_WELL_KNOWN_PATH,
 )
-from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 from fastapi import FastAPI
 from starlette.requests import Request
@@ -197,7 +197,7 @@ class RuntimeA2AFastAPIApplication(JSONRPCApplication):
             component_schemas['A2ARequest'] = a2a_request_schema
 
             if settings.CONFIG_RELOAD_INTERVAL_SECONDS > 0:
-                scheduler = BackgroundScheduler()
+                scheduler = AsyncIOScheduler()
                 scheduler.add_job(
                     self.reload_agent_config,
                     IntervalTrigger(seconds=settings.CONFIG_RELOAD_INTERVAL_SECONDS),
