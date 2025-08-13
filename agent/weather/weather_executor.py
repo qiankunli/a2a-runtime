@@ -23,7 +23,8 @@ class WeatherExecutor(AgentExecutor):
     ):
         # Run the agent until either complete or the task is suspended.
         updater = TaskUpdater(event_queue, context.task_id, context.context_id)
-        print(context.message.parts[0])
+        print("input part", context.message.parts[0])
+        print("related tasks", context.related_tasks)
         # Immediately notify that the task is submitted.
         if context.message.parts[0].root.kind == 'text':
             if "上海" not in context.message.parts[0].root.text:

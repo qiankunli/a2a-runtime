@@ -1,4 +1,5 @@
 import uvicorn
+from a2a.server.request_handlers import DefaultRequestHandler
 
 from a2a.server.tasks import InMemoryTaskStore
 from a2a.types import (
@@ -107,7 +108,11 @@ if __name__ == '__main__':
     agent_loader = init_agent_loader()
     notifier = init_notifier()
     # todo 有机会试下DatabaseTaskStore
-    request_handler = RuntimeRequestHandler(
+    # request_handler = RuntimeRequestHandler(
+    #     agent_executor=RuntimeAgentExecutor(agent_config_store, agent_loader),
+    #     task_store=InMemoryTaskStore(),
+    # )
+    request_handler = DefaultRequestHandler(
         agent_executor=RuntimeAgentExecutor(agent_config_store, agent_loader),
         task_store=InMemoryTaskStore(),
     )
