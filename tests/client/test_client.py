@@ -2,6 +2,7 @@ import logging
 
 from typing import Any
 from uuid import uuid4
+import sys
 
 import httpx
 import pytest
@@ -17,17 +18,24 @@ from a2a.utils.constants import (
     AGENT_CARD_WELL_KNOWN_PATH,
     EXTENDED_AGENT_CARD_PATH,
 )
+from server.common.standard_logging import LOG_FORMAT, DATE_FORMAT
 
+
+logger = logging.getLogger(__name__)  # Get a logger instance
+
+logger.setLevel(logging.DEBUG)
+console_handler = logging.StreamHandler(sys.stdout)
+formatter = logging.Formatter(fmt=LOG_FORMAT, datefmt=DATE_FORMAT)
+console_handler.setFormatter(formatter)
+logger.addHandler(console_handler)
 
 @pytest.mark.asyncio
 async def test_helloword() -> None:
     # Configure logging to show INFO level messages
-    logging.basicConfig(level=logging.INFO)
-    logger = logging.getLogger(__name__)  # Get a logger instance
 
     # --8<-- [start:A2ACardResolver]
 
-    base_url = 'http://0.0.0.0:9999/default/helloworld'
+    base_url = 'http://localhost:9999/default/helloworld'
 
     async with httpx.AsyncClient() as httpx_client:
         # Initialize A2ACardResolver
