@@ -9,7 +9,6 @@ from a2a.types import (
 
 from server.a2a2.agent_execution.runtime_agent_executor import RuntimeAgentExecutor
 from server.a2a2.apps.jsonrpc.runtime_fastapi_app import RuntimeA2AFastAPIApplication
-from server.a2a2.request_handlers.runtime_request_handler import RuntimeRequestHandler
 from server.common.model import AgentConfig
 from server.conf import settings
 from server.config_store.base import AgentConfigStore
