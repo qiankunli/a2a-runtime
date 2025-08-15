@@ -267,7 +267,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+poetry.lock
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -302,3 +302,4 @@ app/tests/tiktoken_resource/
 # vim
 tags
 *.swp
+poetry.lock
